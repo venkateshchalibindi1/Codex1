@@ -15,7 +15,7 @@ profiles:
     must_have_keywords: ["tcp/ip", "routing switching", "ad"]
     nice_to_have_keywords: ["firewall", "palo alto", "vpn"]
     exclude_keywords: ["senior", "principal", "clearance"]
-    time_window_hours: 24
+    time_window_hours: 12
 collector:
   js_heavy_fetch_enabled: false
   retries: 2
