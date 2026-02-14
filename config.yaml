@@ -8,7 +8,7 @@ profiles:
   - name: "Default"
     target_titles: ["Network Engineer", "NOC Engineer"]
     adjacent_titles: ["Systems Engineer", "Infrastructure Engineer"]
-    location_mode: "Remote"
+    location_mode: "USA"
     city: null
     radius_km: null
     experience_range: "1-3"
@@ -22,7 +22,7 @@ collector:
   timeout_seconds: 20
   throttle_seconds: 0.6
 limits:
-  max_jobs_per_run: 500
+  max_jobs_per_run: 50
 filters:
   exclude_keywords_global: []
 discovery:
