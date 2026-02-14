@@ -1,0 +1,66 @@
+excel_path: "C:/Users/Public/JobPipeline/jobpipeline_tracker.xlsx"
+storage:
+  sqlite_path: "C:/Users/Public/JobPipeline/jobpipeline.sqlite"
+output_dir: "C:/Users/Public/JobPipeline"
+include_domains: []
+exclude_domains: []
+profiles:
+  - name: "Default"
+    target_titles: ["Network Engineer", "NOC Engineer"]
+    adjacent_titles: ["Systems Engineer", "Infrastructure Engineer"]
+    location_mode: "Remote"
+    city: null
+    radius_km: null
+    experience_range: "1-3"
+    must_have_keywords: ["tcp/ip", "routing switching", "ad"]
+    nice_to_have_keywords: ["firewall", "palo alto", "vpn"]
+    exclude_keywords: ["senior", "principal", "clearance"]
+    time_window_hours: 24
+collector:
+  js_heavy_fetch_enabled: false
+  retries: 2
+  timeout_seconds: 20
+  throttle_seconds: 0.6
+limits:
+  max_jobs_per_run: 500
+filters:
+  exclude_keywords_global: []
+discovery:
+  enabled: false
+  provider: "disabled"
+  api_key: ""
+sources:
+  remoteok_api: {enabled: true, domain: "remoteok.com"}
+  remotive_api: {enabled: true, domain: "remotive.com"}
+  arbeitnow_api: {enabled: true, domain: "arbeitnow.com"}
+  greenhouse_api: {enabled: true, domain: "greenhouse.io", boards: ["stripe"]}
+  lever_api: {enabled: true, domain: "lever.co", companies: ["netflix"]}
+  weworkremotely_rss: {enabled: true, domain: "weworkremotely.com"}
+  remoteok_rss: {enabled: true, domain: "remoteok.com"}
+  craigslist_rss: {enabled: true, domain: "craigslist.org", city: "sfbay", category: "sof"}
+  ashby: {enabled: false, domain: "ashbyhq.com", todo: "Implement structured HTML/JSON discovery"}
+  workable: {enabled: false, domain: "workable.com", todo: "Implement structured parsing"}
+  usajobs_api: {enabled: false, domain: "usajobs.gov", api_key: "", user_agent_email: "", todo: "Enable when key configured"}
+  adzuna_api: {enabled: false, domain: "adzuna.com", app_id: "", app_key: ""}
+  jooble_api: {enabled: false, domain: "jooble.org", api_key: ""}
+  authentic_jobs_api: {enabled: false, domain: "authenticjobs.com", api_key: ""}
+  stack_overflow_jobs_rss: {enabled: false, domain: "stackoverflow.com", todo: "Obsolete/legacy RSS; validate feed"}
+  github_jobs_legacy: {enabled: false, domain: "jobs.github.com", todo: "Legacy endpoint; keep stub"}
+  hiringcafe: {enabled: false, domain: "hiring.cafe", todo: "Best-effort HTML with throttling"}
+  idealist: {enabled: false, domain: "idealist.org", todo: "Best-effort HTML adapter"}
+  simplyhired: {enabled: false, domain: "simplyhired.com", todo: "anti-bot risk, keep stub"}
+  dice: {enabled: false, domain: "dice.com", api_key: "", rss_url: "", todo: "API/RSS when available"}
+  careerjet_api: {enabled: false, domain: "careerjet.com", affiliate_id: ""}
+  reed_api: {enabled: false, domain: "reed.co.uk", api_key: ""}
+  the_muse_api: {enabled: false, domain: "themuse.com", api_key: ""}
+  jobspresso: {enabled: false, domain: "jobspresso.co", todo: "simple HTML board"}
+  snagajob: {enabled: false, domain: "snagajob.com", todo: "blocked/uncertain"}
+  governmentjobs: {enabled: false, domain: "governmentjobs.com", todo: "vendor specific flows"}
+  higheredjobs: {enabled: false, domain: "higheredjobs.com", todo: "HTML/RSS adapter"}
+  relocate_me: {enabled: false, domain: "relocate.me", todo: "HTML parser"}
+  behance_jobs: {enabled: false, domain: "behance.net", todo: "API/RSS unclear"}
+  problogger: {enabled: false, domain: "problogger.com", todo: "WordPress parser"}
+  landing_jobs: {enabled: false, domain: "landing.jobs", api_key: "", todo: "API adapter"}
+h1b_employers:
+  - {name: "Stripe", ats: "greenhouse", board_slug: "stripe"}
+  - {name: "Netflix", ats: "lever", board_slug: "netflix"}
